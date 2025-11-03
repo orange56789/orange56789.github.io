@@ -1,11 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>My Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Official Site</title>
+<meta name="description" content="Official website of the developer team, providing high-quality mobile apps and games.">
+<style>
+  :root {
+    --primary-color: #0078d7;
+    --secondary-color: #005fa3;
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --footer-bg: #222;
+    --footer-text: #ccc;
+    --btn-radius: 8px;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+  }
+  header {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  header h1 { font-size: 2.6rem; margin-bottom:10px; }
+  header p { font-size: 1.2rem; opacity: 0.9; }
+  main { max-width: 1000px; margin:40px auto; padding:0 20px; display:grid; gap:50px; }
+  section {
+    background:#fff;
+    border-radius:12px;
+    padding:30px 25px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    opacity:0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+  }
+  section.visible { opacity:1; transform: translateY(0);}
+  h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom:5px;
+  }
+  ul { padding-left:20px; }
+  a { color: var(--primary-color); text-decoration: none; transition: all 0.3s; }
+  a:hover { text-decoration: underline; }
+  .btn {
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 28px;
+    background-color: var(--primary-color);
+    color:#fff;
+    border-radius: var(--btn-radius);
+    text-decoration:none;
+    font-weight:bold;
+    transition: all 0.3s;
+  }
+  .btn:hover { background-color: var(--secondary-color); transform: scale(1.05);}
+  footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align:center;
+    padding:40px 20px;
+    font-size:0.9rem;
+  }
+  footer a { color: var(--footer-text); }
+  footer a:hover { color:#fff; }
+  @media (max-width:600px){
+    header h1{ font-size:2rem; }
+    h2{ font-size:1.5rem; }
+  }
+</style>
 </head>
 <body>
-    <h1>Welcome to My Game Studio!</h1>
-    <p>This is the official website of Mermaid Rescue Game.</p>
+
+<header>
+  <h1>Developer Official Site</h1>
+  <p>Independent team creating high-quality mobile apps and games</p>
+</header>
+
+<main>
+  <section class="animate">
+    <h2>About Us</h2>
+    <p>We are an independent team of passionate developers, dedicated to creating mobile applications and games 
+       that are engaging, innovative, and safe for users worldwide. Our mission is to provide high-quality digital 
+       experiences that entertain, inspire, and connect people globally.</p>
+  </section>
+
+  <section class="animate">
+    <h2>Our Values</h2>
+    <ul>
+      <li>🔹 Respect user privacy and data security</li>
+      <li>🔹 Continuous improvement of products and user experience</li>
+      <li>🔹 Compliance with Google Play policies and global regulations</li>
+      <li>🔹 Transparency and honesty in all communications</li>
+      <li>🔹 Innovation and creativity in digital content</li>
+    </ul>
+  </section>
+
+  <section class="animate">
+    <h2>Privacy & Policies</h2>
+    <p>Protecting user privacy is our top priority. Please review our comprehensive privacy policy to understand 
+       how we collect, store, and use data responsibly.</p>
+    <a href="privacy.html" class="btn">View Privacy Policy</a>
+  </section>
+
+  <section class="animate">
+    <h2>Support & Contact</h2>
+    <p>For inquiries, technical support, or feedback, you can reach us at:
+       <br>📧 Email: <a href="mailto:ycorange567@gmail.com">ycorange567@gmail.com</a>
+       <br>🌐 Website: <a href="https://example.com" target="_blank">https://example.com</a>
+    </p>
+  </section>
+
+  <section class="animate">
+    <h2>FAQ / Help</h2>
+    <p>Frequently asked questions, guides, and tips can be found here. We respond to support requests within 24-48 hours.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Developer Studio. All rights reserved.</p>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.animate');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(section => observer.observe(section));
+</script>
+
 </body>
 </html>
